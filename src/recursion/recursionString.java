@@ -68,4 +68,33 @@ public class recursionString {
 			return t.charAt(0)+combinar(resto(s),resto(t)); 
 		}
 	}
+	
+	public static boolean esAbecedaria(String s) {
+		//Caso base
+		if(s.length()<=1) {
+			return true;
+		}
+		//Caso recursivo
+		else if(s.charAt(0)>s.charAt(1)) {
+			return false;
+		}
+		else {
+		 return esAbecedaria(resto(s));
+		} 
+	}
+	
+	
+	public static int cantidadApariciones(String s, char c) {
+		//	Caso base
+		if(s.equals("")){
+			return 0;
+		}
+		//Caso recursivo
+		else if(s.charAt(0)==c){
+			return 1+cantidadApariciones(resto(s),c);
+		}
+		else {
+			return cantidadApariciones(resto(s),c);
+		}
+	}
 }
