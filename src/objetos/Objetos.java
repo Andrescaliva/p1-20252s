@@ -3,6 +3,11 @@ package objetos;
 import java.awt.*;
 
 public class Objetos {
+	public static void mover(Rectangle caja, int dx, int dy) {
+		caja.x += dx;
+		caja.y += dy;
+	}
+	
 	public static double distancia(Point p1, Point p2) {
 		double dx=p1.x-p2.x;
 		double dy=p1.y-p2.y;
@@ -24,10 +29,7 @@ public class Objetos {
 	}
 	
 	public static boolean estaDentro(Point p, Rectangle r) {
-		if(p.x>=r.x&&p.x<=r.x+r.width&&p.y>=r.y&&p.y<=r.y+r.height) {
-			return true;
-		}
-		return false;
+		return r.x<=p.x && p.x<=r.x+r.width && r.y<=p.y && 	p.y<=r.y+r.height;
 	}
 	
 	public static Point puntoMedio(Point p1, Point p2) {
@@ -46,11 +48,13 @@ public class Objetos {
 		return encuadrado;
 	}
 	
+	
+	
 	public static Rectangle interseccion(Rectangle r1, Rectangle r2) {
-		int x=Math.min(r1.x,r2.x);
-		int y=Math.min(r1.y, r2.y);
-		int anchoIntersec=Math.max(r1.x+r1.width, r2.x+r2.width)-x;
-		int largoIntersec=Math.max(r1.y+r1.height, r2.y+r2.height)-y;
+		int x=Math.max(r1.x,r2.x);
+		int y=Math.max(r1.y, r2.y);
+		int anchoIntersec=Math.min(r1.x+r1.width, r2.x+r2.width)-x;
+		int largoIntersec=Math.min(r1.y+r1.height, r2.y+r2.height)-y;
 		Rectangle Interseccion = new Rectangle(x,y,anchoIntersec,largoIntersec);
 		if(anchoIntersec>0&&largoIntersec>0) {
 			return Interseccion;

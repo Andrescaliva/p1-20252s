@@ -17,6 +17,8 @@ public class Main {
 		System.out.println(ejParcial.eliminarVocalesYRevertir("andres"));
 		System.out.println(ejParcial.contieneCantidadDeChar("casa", 'a', 1));
 		System.out.println(ejParcial.tomarCaracteresDesde("sobrenatural", 0, 5));
+		System.out.println(ejParcial.reverso("los","sol"));
+		System.out.println(ejParcial.reverso("los","soledad"));
 	}
 
 }

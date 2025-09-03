@@ -58,5 +58,21 @@ public class ejParcial {
 		return s.charAt(0)+tomarCaracteresDesde(recursionString.resto(s),desde,cant-1);
 		
 	}
+	
+	public static boolean reverso(String s1, String s2) {
+		//Caso base
+		if(s1.equals("")&&s2.equals("")) {
+			return true;
+		}
+		//Caso recursivo
+		if(s1.length()!=s2.length()) {
+			return false;
+		}
+		if(s1.charAt(0)!=s2.charAt(s2.length()-1)) {
+			return false;
+		}
+		return reverso(recursionString.resto(s1),s2.substring(0, s2.length()-1));
+		
+	}
 
 }
