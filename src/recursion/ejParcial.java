@@ -74,5 +74,29 @@ public class ejParcial {
 		return reverso(recursionString.resto(s1),s2.substring(0, s2.length()-1));
 		
 	}
+	
+	public static boolean estaContenida(String s, String a, int p) {
+		//Casos base
+		if(a.length()==0) {
+			return true;
+		}
+		if(a.length()>0&&s.equals("")) {
+			return false;
+		}
+		if(s.length()<a.length()) {
+			return false;
+		}
+		if(s.length()-p<a.length()) {
+			return false;
+		}
+		//Casos recursivos
+		if(p>0) {
+			return estaContenida(recursionString.resto(s),a,p-1);
+		}else if(s.charAt(0)==a.charAt(0)) {
+			return estaContenida(recursionString.resto(s),recursionString.resto(a),0);
+		}else {//s.charAt(0)!=a.charAt(0)
+			return estaContenida(recursionString.resto(s),a,0);
+		}
+	}
 
 }

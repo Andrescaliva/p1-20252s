@@ -19,6 +19,7 @@ public class Main {
 		System.out.println(ejParcial.tomarCaracteresDesde("sobrenatural", 0, 5));
 		System.out.println(ejParcial.reverso("los","sol"));
 		System.out.println(ejParcial.reverso("los","soledad"));
+		System.out.println(ejParcial.estaContenida("xmmmm", "mm", 4));
 	}
 
 }
