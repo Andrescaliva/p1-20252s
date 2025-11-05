@@ -98,5 +98,22 @@ public class ejParcial {
 			return estaContenida(recursionString.resto(s),a,0);
 		}
 	}
+	
+	public static String invertirDesde(String s, int pos){
+		//Casos bases
+		if(s.isEmpty()){
+			return "";
+		}
+		if(s.length()<pos){
+			return s;
+		}
+		//Caso recursivo
+		if(pos>0){
+			return ""+s.charAt(0)+invertirDesde(recursionString.resto(s),pos-1);
+		}
+		return invertirDesde(recursionString.resto(s),pos)+s.charAt(0);
+			
+		
+	}
 
 }

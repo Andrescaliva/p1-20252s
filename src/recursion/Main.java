@@ -20,6 +20,7 @@ public class Main {
 		System.out.println(ejParcial.reverso("los","sol"));
 		System.out.println(ejParcial.reverso("los","soledad"));
 		System.out.println(ejParcial.estaContenida("xmmmm", "mm", 4));
+		System.out.println(ejParcial.invertirDesde("recursion", 3));
 	}
 
 }
