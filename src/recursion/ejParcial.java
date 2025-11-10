@@ -111,9 +111,24 @@ public class ejParcial {
 		if(pos>0){
 			return ""+s.charAt(0)+invertirDesde(recursionString.resto(s),pos-1);
 		}
-		return invertirDesde(recursionString.resto(s),pos)+s.charAt(0);
-			
+		return invertirDesde(recursionString.resto(s),pos)+s.charAt(0);		
+	}
+	
+	public static String eliminarVocalesDesde(String s, int pos) {
+		//Caso base
+		if(s.isEmpty()) {
+			return s;
+		}
 		
+		//Caso recursivo
+		if(pos>0) {
+			return s.charAt(0) + eliminarVocalesDesde(recursionString.resto(s),pos-1);
+		}
+		if(recursionString.esVocal(s.charAt(0)))
+			return eliminarVocalesDesde(recursionString.resto(s),pos);
+		else {
+			return s.charAt(0) + eliminarVocalesDesde(recursionString.resto(s),pos);
+		}
 	}
 
 }
