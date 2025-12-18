@@ -14,6 +14,7 @@ public class Main {
 		//System.out.println(recursionString.cantidadApariciones("casa", 'a'));
 		//System.out.println(recursionString.cantidadApariciones("casa",'d'));
 		//System.out.println(recursionString.esAbecedaria("hilos"));
+<<<<<<< HEAD
 		//System.out.println(ejParcial.cambiarConsonante("programacion",'!'));
 		//System.out.println(ejParcial.cambiarConsonante("murcielago",'x'));
 		//System.out.println(ejParcial.cambiarConsonante("dddffdf", '*'));
@@ -27,6 +28,16 @@ public class Main {
 		//System.out.println(ejParcial.eliminarLetraEntreIguales("ab", 'b'));
 		System.out.println(ejParcial.invertirPares("murcielago"));
 		System.out.println(ejParcial.invertirPares("anana"));
+=======
+		System.out.println(ejParcial.eliminarVocalesYRevertir("andres"));
+		System.out.println(ejParcial.contieneCantidadDeChar("casa", 'a', 1));
+		System.out.println(ejParcial.tomarCaracteresDesde("sobrenatural", 0, 5));
+		System.out.println(ejParcial.reverso("los","sol"));
+		System.out.println(ejParcial.reverso("los","soledad"));
+		System.out.println(ejParcial.estaContenida("xmmmm", "mm", 4));
+		System.out.println(ejParcial.invertirDesde("recursion", 3));
+		System.out.println(ejParcial.eliminarVocalesDesde("murcielago", 5));
+>>>>>>> 159c6ab4f2588b43b67874f83caba341493d97aa
 	}
 
 }

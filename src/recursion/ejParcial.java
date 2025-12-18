@@ -75,6 +75,7 @@ public class ejParcial {
 		
 	}
 	
+<<<<<<< HEAD
 	public static String cambiarConsonante(String s, char r) {
 		//Caso base
 		if(s.length()<2) {
@@ -144,6 +145,62 @@ public class ejParcial {
 		//Caso recursivo
 		return s.charAt(1)+""+s.charAt(0)+invertirPares(recursionString.resto(recursionString.resto(s)));
 	
+=======
+	public static boolean estaContenida(String s, String a, int p) {
+		//Casos base
+		if(a.length()==0) {
+			return true;
+		}
+		if(a.length()>0&&s.equals("")) {
+			return false;
+		}
+		if(s.length()<a.length()) {
+			return false;
+		}
+		if(s.length()-p<a.length()) {
+			return false;
+		}
+		//Casos recursivos
+		if(p>0) {
+			return estaContenida(recursionString.resto(s),a,p-1);
+		}else if(s.charAt(0)==a.charAt(0)) {
+			return estaContenida(recursionString.resto(s),recursionString.resto(a),0);
+		}else {//s.charAt(0)!=a.charAt(0)
+			return estaContenida(recursionString.resto(s),a,0);
+		}
+	}
+	
+	public static String invertirDesde(String s, int pos){
+		//Casos bases
+		if(s.isEmpty()){
+			return "";
+		}
+		if(s.length()<pos){
+			return s;
+		}
+		//Caso recursivo
+		if(pos>0){
+			return ""+s.charAt(0)+invertirDesde(recursionString.resto(s),pos-1);
+		}
+		return invertirDesde(recursionString.resto(s),pos)+s.charAt(0);		
+	}
+	
+	public static String eliminarVocalesDesde(String s, int pos) {
+		//Caso base
+		if(s.isEmpty()) {
+			return s;
+		}
+		
+		//Caso recursivo
+		if(pos>0) {
+			return s.charAt(0) + eliminarVocalesDesde(recursionString.resto(s),pos-1);
+		}
+		if(recursionString.esVocal(s.charAt(0)))
+			return eliminarVocalesDesde(recursionString.resto(s),pos);
+		else {
+			return s.charAt(0) + eliminarVocalesDesde(recursionString.resto(s),pos);
+		}
+>>>>>>> 159c6ab4f2588b43b67874f83caba341493d97aa
 	}
 
 }
