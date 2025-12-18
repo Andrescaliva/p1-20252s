@@ -59,7 +59,7 @@ public class ejParcial {
 		
 	}
 	
-	public static boolean reverso(String s1, String s2) {
+	public static boolean inversos(String s1, String s2) {
 		//Caso base
 		if(s1.equals("")&&s2.equals("")) {
 			return true;
@@ -71,8 +71,79 @@ public class ejParcial {
 		if(s1.charAt(0)!=s2.charAt(s2.length()-1)) {
 			return false;
 		}
-		return reverso(recursionString.resto(s1),s2.substring(0, s2.length()-1));
+		return inversos(recursionString.resto(s1),s2.substring(0, s2.length()-1));
 		
+	}
+	
+	public static String cambiarConsonante(String s, char r) {
+		//Caso base
+		if(s.length()<2) {
+			return s;
+		}
+		
+		String aux=recursionString.resto(s);
+		char auxiliar=aux.charAt(0);
+		//Caso recursivo
+		if(!recursionString.esVocal(s.charAt(0))&&!recursionString.esVocal(auxiliar)) {
+			return ""+s.charAt(0)+r+cambiarConsonante(recursionString.resto(aux), r);
+		}else {
+			return ""+s.charAt(0)+cambiarConsonante(aux,r);
+		}
+		
+	}
+	
+	public static int cantidadValles(String s) {
+		//Caso base
+		if(s.length()<2) {
+			return 0;
+		}
+		//caso rescursivo
+		if(s.length()>=2&&s.charAt(0)==s.charAt(1)) {
+			return cantidadValles(recursionString.resto(s))+1;
+		}
+		return cantidadValles(recursionString.resto(s));
+	}
+	
+	public static String eliminarLetraRodeada(String s, char a, char b, char c) {
+		if(s.length()<=2) {
+			return s;
+		}
+		if(a==s.charAt(1)&b==s.charAt(0)&&c==s.charAt(2)) {
+			return ""+s.charAt(0)+eliminarLetraRodeada(recursionString.resto(recursionString.resto(s)),a,b,c);
+		}
+		return ""+s.charAt(0)+eliminarLetraRodeada(recursionString.resto(s),a,b,c);
+	}
+	
+	public static String eliminarLetraEntreIguales(String s, char a) {
+		if(s.length()<=2) {
+			return s;
+		}
+		if(s.charAt(1)==a) {
+			return ""+s.charAt(0)+eliminarLetraEntreIguales(recursionString.resto(recursionString.resto(s)),a);
+		}
+		return ""+s.charAt(0)+eliminarLetraEntreIguales(recursionString.resto(s),a);
+	}
+	
+	
+	public static String eliminarDuplicadosConsecutivosIguales(String s) {
+		//Caso base
+		if(s.length()<=1) {
+			return s;
+		}
+		if(recursionString.resto(s).length()>0&&s.charAt(0)==recursionString.resto(s).charAt(0)) {
+			return eliminarDuplicadosConsecutivosIguales(recursionString.resto(s));
+		}
+		return s.charAt(0)+eliminarDuplicadosConsecutivosIguales(recursionString.resto(s));
+	}
+	
+	public static String invertirPares(String s) {
+		//CASO BASE
+		if(s.length()<=1) {
+			return s;
+		}
+		//Caso recursivo
+		return s.charAt(1)+""+s.charAt(0)+invertirPares(recursionString.resto(recursionString.resto(s)));
+	
 	}
 
 }
